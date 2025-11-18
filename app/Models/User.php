@@ -18,10 +18,14 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    'id_user',       
+    'name',
+    'role',          
+    'no_handphone',  
+    'foto',          
+    'email',
+    'password',
+];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -44,5 +48,16 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Relasi ke Transaksi.
+     * 1 User (kasir) bisa memiliki banyak transaksi.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function transaksi()
+    {
+        return $this->hasMany(m_transaksi::class, 'id_user');
     }
 }
