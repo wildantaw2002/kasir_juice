@@ -19,8 +19,15 @@ class t_menu extends Model
         'harga' => 'decimal:2',
     ];
 
-    public function t_detail_transaksi()
+    public function detailTransaksi()
     {
         return $this->hasMany(t_detail_transaksi::class, 'id_menu');
+    }
+
+    public function bahans()
+    {
+        return $this->belongsToMany(t_bahan::class, 't_resep_menu', 'id_menu', 'id_bahan')
+                    ->withPivot('jumlah_bahan')
+                    ->withTimestamps();
     }
 }
