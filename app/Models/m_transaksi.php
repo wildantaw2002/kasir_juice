@@ -9,7 +9,6 @@ class m_transaksi extends Model
     protected $table = 't_transaksi';
 
     protected $fillable = [
-        'id_transaksi',
         'kode_transaksi',
         'id_user',
         'total',

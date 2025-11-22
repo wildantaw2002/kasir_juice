@@ -9,7 +9,6 @@ class t_detail_transaksi extends Model
     protected $table = 't_detail_transaksi';
 
     protected $fillable = [
-        'id_detail',
         'id_transaksi',
         'id_menu',
         'ukuran',
@@ -18,7 +17,6 @@ class t_detail_transaksi extends Model
     ];
 
     protected $casts = [
-        'ukuran' => 'integer',
         'jumlah' => 'integer',
         'subtotal' => 'decimal:2',
     ];

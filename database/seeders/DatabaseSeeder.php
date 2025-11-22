@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         // Admin
         User::create([
-            'id_user' => 'USR001',
             'name' => 'Admin Kasir',
             'email' => 'admin@kasir.com',
             'password' => Hash::make('password'),
@@ -26,7 +25,6 @@ class DatabaseSeeder extends Seeder
 
         // Kasir 1
         User::create([
-            'id_user' => 'USR002',
             'name' => 'Kasir 1',
             'email' => 'kasir@kasir.com',
             'password' => Hash::make('password'),

@@ -8,7 +8,6 @@ class t_menu extends Model
 {
     protected $table = 't_menu';
     protected $fillable = [
-        'id_menu',
         'nama_menu',
         'kategori',
         'harga',

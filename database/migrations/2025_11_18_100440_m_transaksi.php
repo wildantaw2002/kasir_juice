@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('t_transaksi', function (Blueprint $table) {
             $table->id();
-            $table->string('id_transaksi')->unique();
             $table->string('kode_transaksi')->unique();
             $table->foreignId('id_user')->constrained('users')->onDelete('restrict');
             $table->decimal('total', 12, 2);

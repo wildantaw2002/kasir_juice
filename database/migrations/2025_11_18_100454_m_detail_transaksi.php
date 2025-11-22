@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('t_detail_transaksi', function (Blueprint $table) {
             $table->id();
-            $table->string('id_detail')->unique();
             $table->foreignId('id_transaksi')->constrained('t_transaksi')->onDelete('cascade');
             $table->foreignId('id_menu')->constrained('t_menu')->onDelete('cascade');
-            $table->integer('ukuran');
+            $table->string('ukuran');
             $table->integer('jumlah');
             $table->decimal('subtotal', 12, 2);
             $table->timestamps();

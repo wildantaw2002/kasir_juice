@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('t_menu', function (Blueprint $table) {
             $table->id();
-            $table->string('id_menu')->unique();
             $table->string('nama_menu');
             $table->string('kategori');
             $table->decimal('harga', 10, 2);

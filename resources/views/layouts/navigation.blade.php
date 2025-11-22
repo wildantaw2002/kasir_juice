@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('dashboardd') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
@@ -15,6 +15,16 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    
+                    @if(auth()->check() && in_array(auth()->user()->role, ['admin', 'kasir']))
+                    <x-nav-link :href="route('kasir.index')" :active="request()->routeIs('kasir.*')">
+                        🛒 {{ __('Kasir') }}
+                    </x-nav-link>
+                    
+                    <x-nav-link :href="route('menu.index')" :active="request()->routeIs('menu.*')">
+                        🍹 {{ __('Menu') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -70,6 +80,16 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            
+            @if(auth()->check() && in_array(auth()->user()->role, ['admin', 'kasir']))
+            <x-responsive-nav-link :href="route('kasir.index')" :active="request()->routeIs('kasir.*')">
+                🛒 {{ __('Kasir') }}
+            </x-responsive-nav-link>
+            
+            <x-responsive-nav-link :href="route('menu.index')" :active="request()->routeIs('menu.*')">
+                🍹 {{ __('Menu') }}
+            </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
